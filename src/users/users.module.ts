@@ -17,6 +17,20 @@ import { greeting } from './provider/greeting.provider';
       provide: 'userService',
       useExisting: UsersService,
     },
+    {
+      provide: 'ASYNC_CONNECTION',
+      useFactory: async () => {
+        console.log('connecting...');
+        const connection = await new Promise((resolve) => {
+          setTimeout(
+            () => resolve({ status: 'connected', time: new Date() }),
+            1000,
+          );
+        });
+        console.log('connected!');
+        return connection;
+      },
+    },
   ],
 })
 export class UsersModule {}
