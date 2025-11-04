@@ -7,7 +7,10 @@ export class UsersService {
     { id: 1, name: 'Ilia', last_name: 'vavilov' },
     { id: 2, name: 'Egor', last_name: 'Vavilov' },
   ];
-  constructor(@Inject('defaultUser') private defaultUser: { name: string }) {}
+  constructor(
+    @Inject('defaultUser') private defaultUser: { name: string },
+    @Inject('GREETING') private greeting: string,
+  ) {}
 
   findAll(): User[] {
     return this.users;
@@ -20,5 +23,9 @@ export class UsersService {
     } else {
       return 'Пользователь не найден';
     }
+  }
+
+  getGreeting() {
+    return this.greeting;
   }
 }

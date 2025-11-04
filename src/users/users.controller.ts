@@ -15,4 +15,9 @@ export class UsersController {
   findOne() {
     return this.usersService.findOne();
   }
+
+  @Get('time')
+  showDate() {
+    return this.usersService.getGreeting();
+  }
 }
