@@ -7,8 +7,12 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Get()
-  async findAll(): Promise<User[]> {
-    const users = await this.usersService.findAll();
-    return users;
+  findAll(): User[] {
+    return this.usersService.findAll();
+  }
+
+  @Get('default')
+  findOne() {
+    return this.usersService.findOne();
   }
 }
