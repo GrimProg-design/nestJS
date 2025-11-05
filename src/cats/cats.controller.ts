@@ -10,4 +10,9 @@ export class CatsController {
   async findAll(): Promise<Cat[]> {
     return this.catsServise.findAll();
   }
+
+  @Get('example')
+  example() {
+    return this.catsServise.example();
+  }
 }

@@ -34,5 +34,6 @@ import { ModulesModule } from 'src/modules/modules.module';
       },
     },
   ],
+  exports: [UsersService, ModulesModule],
 })
 export class UsersModule {}
