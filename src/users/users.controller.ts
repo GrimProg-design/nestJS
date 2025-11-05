@@ -20,4 +20,9 @@ export class UsersController {
   showDate() {
     return this.usersService.getGreeting();
   }
+
+  @Get('example')
+  example() {
+    return this.usersService.example();
+  }
 }

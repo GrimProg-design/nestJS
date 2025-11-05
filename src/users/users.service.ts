@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { User } from './interfaces/user.interface';
+import { ModulesService } from 'src/modules/modules.service';
 
 @Injectable()
 export class UsersService {
@@ -10,6 +11,7 @@ export class UsersService {
   constructor(
     @Inject('defaultUser') private defaultUser: { name: string },
     @Inject('GREETING') private greeting: string,
+    private modulesServise: ModulesService,
   ) {}
 
   findAll(): User[] {
@@ -27,5 +29,9 @@ export class UsersService {
 
   getGreeting() {
     return this.greeting;
+  }
+
+  example() {
+    return this.modulesServise.example();
   }
 }

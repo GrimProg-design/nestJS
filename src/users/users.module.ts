@@ -3,8 +3,10 @@ import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import { defaultUser } from './provider/defaultUsers.provider';
 import { greeting } from './provider/greeting.provider';
+import { ModulesModule } from 'src/modules/modules.module';
 
 @Module({
+  imports: [ModulesModule],
   controllers: [UsersController],
   providers: [
     UsersService,
