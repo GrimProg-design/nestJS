@@ -6,9 +6,10 @@ import { UsersModule } from './users/users.module';
 import { ModulesService } from './modules/modules.service';
 import { ModulesController } from './modules/modules.controller';
 import { ModulesModule } from './modules/modules.module';
+import { DynamicModuleModule } from './dynamic-module/dynamic-module.module';
 
 @Module({
-  imports: [CatsModule, UsersModule, ModulesModule],
+  imports: [CatsModule, UsersModule, ModulesModule, DynamicModuleModule],
   controllers: [AppController, ModulesController],
   providers: [AppService, ModulesService],
 })
