@@ -9,7 +9,12 @@ import { ModulesModule } from './modules/modules.module';
 import { DynamicModuleModule } from './dynamic-module/dynamic-module.module';
 
 @Module({
-  imports: [CatsModule, UsersModule, ModulesModule, DynamicModuleModule],
+  imports: [
+    CatsModule,
+    UsersModule,
+    ModulesModule,
+    DynamicModuleModule.register({ prefix: 'MAIN' }),
+  ],
   controllers: [AppController, ModulesController],
   providers: [AppService, ModulesService],
 })
