@@ -3,7 +3,13 @@ import { User } from './interfaces/users.interface';
 
 @Injectable()
 export class UsersService {
-  private data: User[] = [];
+  private data: User[] = [
+    {
+      id: 1,
+      name: 'Egot',
+      last_name: 'Vavilov',
+    },
+  ];
 
   setUser(user: User) {
     this.data.push(user);
@@ -15,11 +21,10 @@ export class UsersService {
   }
 
   deleteUser(id: number) {
-    const index = this.data.findIndex((user) => user.id === id);
-    console.log(index);
+    const userIndex = this.data.findIndex((user) => user.id === id);
 
-    if (index === -1) {
-      this.data.splice(index, 1);
+    if (userIndex !== -1) {
+      this.data.splice(userIndex, 1);
       return 'Пользователь удален';
     } else {
       return 'Такого пользователя нету';
