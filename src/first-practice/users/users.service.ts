@@ -13,4 +13,16 @@ export class UsersService {
   findAll(): User[] {
     return this.data;
   }
+
+  deleteUser(id: number) {
+    const index = this.data.findIndex((user) => user.id === id);
+    console.log(index);
+
+    if (index === -1) {
+      this.data.splice(index, 1);
+      return 'Пользователь удален';
+    } else {
+      return 'Такого пользователя нету';
+    }
+  }
 }
