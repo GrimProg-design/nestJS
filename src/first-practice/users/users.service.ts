@@ -13,7 +13,7 @@ export class UsersService {
 
   setUser(user: User) {
     this.data.push(user);
-    return `${user.name} успешно добавлен`;
+    return { message: 'Пользователь добавлен', user };
   }
 
   findAll(): User[] {
@@ -22,12 +22,13 @@ export class UsersService {
 
   deleteUser(id: number) {
     const userIndex = this.data.findIndex((user) => user.id === id);
+    console.log(userIndex);
 
     if (userIndex !== -1) {
       this.data.splice(userIndex, 1);
-      return 'Пользователь удален';
+      return { message: 'Пользователь удален' };
     } else {
-      return 'Такого пользователя нету';
+      return { message: 'Такого пользователя нету' };
     }
   }
 }
