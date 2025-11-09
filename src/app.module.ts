@@ -8,6 +8,7 @@ import { ModulesController } from './modules/modules.controller';
 import { ModulesModule } from './modules/modules.module';
 import { DynamicModuleModule } from './dynamic-module/dynamic-module.module';
 import { ScopeModule } from './scope/scope.module';
+import { FirstPracticeModule } from './first-practice/first-practice.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ScopeModule } from './scope/scope.module';
     ModulesModule,
     DynamicModuleModule.register({ prefix: 'MAIN' }),
     ScopeModule,
+    FirstPracticeModule,
   ],
   controllers: [AppController, ModulesController],
   providers: [AppService, ModulesService],
